@@ -1,0 +1,82 @@
+
+  Id     Duration CommandLine
+  --     -------- -----------
+   1        0.014 cd..
+   2        0.002 cd..
+   3        0.028 New-Item -ItemType Directory -Path c:\PowerShellMC
+   4        0.006 cd C:\PowerShellMC\
+   5        0.058 cls
+   6        2.071 git clone https://github.com/johnthebrit/PowerShellMC.git
+   7        0.036 git pull
+   8        0.005 ls
+   9        0.014 notepad.exe
+  10        0.214 get-process
+  11        0.026 get-process | Where-Object {$_.name -eq "notepad"}
+  12        0.026 get-process | Where-Object {$_.name -eq "notepad"} | Stop-Process
+  13        0.147 ntoepad
+  14        0.011 notepad
+  15        0.050 cls
+  16        0.017 (get-process | Where-Object {$_.name -eq "notepad"})
+  17        0.039 (get-process | Where-Object {$_.name -eq "notepad"}).kill
+  18        0.013 (get-process | Where-Object {$_.name -eq "notepad"}).kill()
+  19        0.008 notepad
+  20        0.000 get-process | sort-Object -Property name |…
+  21        0.000 get-process | sort-Object -Property name | {$_.name -eq "notepad"}
+  22        0.021 get-process | sort-Object -Property name | Where-Object {$_.name -eq "notep…
+  23        0.050 cls
+  24        0.101 ipconfig.exe
+  25        0.050 ipconfig | gm
+  26        0.007 $var1 = "world"
+  27        0.006 Write-Output "hello $var1"
+  28        0.009 $procs = Get-Process
+  29        0.166 $procs
+  30        0.049 cls
+  31        0.011 $procs[0]
+  32        0.067 $procs[0] | gm
+  33        0.009 $var1.GetType().fullname
+  34        0.050 cls
+  35        0.000 Get-Process | Select-Object -Property name, @{name- 'procid' , expression={…
+  36        0.000 Get-Process | Select-Object -Property name, @{name = 'procid' , expression=…
+  37        0.184 Get-Process | Select-Object -Property name, @{name = 'procid'; expression={…
+  38        0.050 cls
+  39        0.007 notepad.exe
+  40        0.018 Get-Process -Name notepad
+  41        0.070 Get-Process -Name notepad | gm
+  42        0.017 Get-Process -Name notepad | Stop-Process
+  43        0.049 cls
+  44        0.165 Get-Process | Select-Object -Property name, @{name = 'procid'; expression={…
+  45        0.046 cls
+  46        0.026 Get-Process | Where-Object {$_.handles -gt 1000}
+  47        0.024 Get-Process | Where Handles -gt 1000 | Sort-Object -Property Handles
+  48        0.031 Get-Process | Where Handles -gt 1000 | Sort-Object -Property Handles | ft n…
+  49        0.051 cls
+  50        0.010 $procs = Get-Process | Where Handles -gt 1000
+  51        0.012 $procs
+  52        0.844 $procs | Out-GridView
+  53        0.006 $hell = "korea"
+  54        0.058 $hell | Out-GridView
+  55        0.053 cls
+  56       26.369 Get-Process | Export-Clixml procs.xml
+  57        0.048 $procs = Import-Clixml .\proc.csv
+  58       11.746 Get-Process | Export-Csv procs.csv
+  59        0.021 $procs = Import-Clixml .\proc.csv
+  60        0.025 $procs = Import-Clixml .\procs.csv
+  61        0.536 $procs = Import-Clixml .\procs.xml
+  62        0.197 $procs
+  63        0.050 cls
+  64        0.037 $procs | gm
+  65        0.051 cls
+  66        0.067 Import-Csv .\procs.csv | gm
+  67        0.050 cls
+  68        0.017 Get-Process | Measure-Object
+  69        0.016 Get-Process | Measure-Object WS -sum -Maximum -Minimum -Average
+  70        0.196 Get-Process | Sort ws
+  71        0.050 cls
+  72        0.176 Get-Process | Sort ws -Descending
+  73        0.026 Get-Process | Sort ws -Descending | select -first 5
+  74        0.463 get-help *history*
+  75        0.082 Get-History
+  76        0.077 Get-WinEvent -LogName security -MaxEvents 5
+  77        0.056 Invoke-Command -ComputerName Mark.Yoo -ScriptBlock {get-winevent -LogName s…
+  78        0.050 cls
+
